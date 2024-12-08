@@ -74,9 +74,6 @@ public class StripeService {
 	// セッションから予約情報を取得し、ReservationServiceクラスを介してデータベースに登録する
 	public void processSessionCompleted(Event event) {
 		Optional<StripeObject> optionalStripeObject = event.getDataObjectDeserializer().getObject();
-		// debug temp		
-//		System.out.println(event.getData().toString());
-//		Object obj = event.getDataObjectDeserializer().deserializeUnsafe();
 		
 		optionalStripeObject.ifPresentOrElse(stripeObject -> {
 			Session session = (Session)stripeObject;

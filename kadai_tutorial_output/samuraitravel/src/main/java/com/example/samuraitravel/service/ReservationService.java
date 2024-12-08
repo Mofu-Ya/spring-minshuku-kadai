@@ -28,19 +28,14 @@ public class ReservationService {
 	
 	@Transactional
 	public void create(Map<String, String> paymentIntentObject) {
-//	public void create(ReservationRegisterForm reservationRegisterForm) {
 		Reservation reservation = new Reservation();
 		
 		Integer houseId = Integer.valueOf(paymentIntentObject.get("houseId"));
 		Integer userId = Integer.valueOf(paymentIntentObject.get("userId"));
 		
-//		House house = houseRepository.getReferenceById(reservationRegisterForm.getHouseId());
 		House house = houseRepository.getReferenceById(houseId);
-//		User user = userRepository.getReferenceById(reservationRegisterForm.getUserId());
 		User user = userRepository.getReferenceById(userId);
-//		LocalDate checkinDate = LocalDate.parse(reservationRegisterForm.getCheckinDate());
 		LocalDate checkinDate = LocalDate.parse(paymentIntentObject.get("checkinDate"));
-//		LocalDate checkoutDate = LocalDate.parse(reservationRegisterForm.getCheckoutDate());
 		LocalDate checkoutDate = LocalDate.parse(paymentIntentObject.get("checkoutDate"));
 		Integer numberOfPeople = Integer.valueOf(paymentIntentObject.get("numberOfPeople"));
 		Integer amount = Integer.valueOf(paymentIntentObject.get("amount"));
@@ -49,9 +44,7 @@ public class ReservationService {
 		reservation.setUser(user);
 		reservation.setCheckinDate(checkinDate);
 		reservation.setCheckoutDate(checkoutDate);
-//		reservation.setNumberOfPeople(reservationRegisterForm.getNumberOfPeople());
 		reservation.setNumberOfPeople(numberOfPeople);
-//		reservation.setAmount(reservationRegisterForm.getAmount());
 		reservation.setAmount(amount);
 		
 		

@@ -52,8 +52,7 @@ public class HouseController {
 			} else {
 				housePage = houseRepository.findByPriceLessThanEqualOrderByCreatedAtDesc(price, pageable);
 			}
-		} else {
-			housePage = houseRepository.findAll(pageable);
+		} else {			
 			if (order != null && order.equals("priceAsc")) {
 				housePage = houseRepository.findAllByOrderByPriceAsc(pageable);
 			} else {

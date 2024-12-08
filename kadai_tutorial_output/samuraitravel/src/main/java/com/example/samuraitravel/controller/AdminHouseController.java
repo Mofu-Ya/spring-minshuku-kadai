@@ -94,12 +94,12 @@ public class AdminHouseController {
 	}
 	
 	@PostMapping("/{id}/update")
-	public String update(@ModelAttribute @Validated HouseEditForm houseEdiForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public String update(@ModelAttribute @Validated HouseEditForm houseEditForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) {
             return "admin/houses/edit";
         }
 		
-		houseService.update(houseEdiForm);
+		houseService.update(houseEditForm);
 		redirectAttributes.addFlashAttribute("successMessage", "民宿情報を編集しました。");
 		
 		return "redirect:/admin/houses";

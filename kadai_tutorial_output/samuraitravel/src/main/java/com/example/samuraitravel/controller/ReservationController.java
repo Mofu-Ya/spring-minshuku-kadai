@@ -76,7 +76,7 @@ public class ReservationController {
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("house", house);
 			model.addAttribute("errorMessage", "予約内容に不備があります。");
-			return "/houses/show";
+			return "houses/show";
 		}
 		
 		redirectAttributes.addFlashAttribute("reservationInputForm", reservationInputForm);
@@ -111,10 +111,4 @@ public class ReservationController {
         return "reservations/confirm";
     } 
 	
-//	@PostMapping("/houses/{id}/reservations/create")
-//	public String create(@ModelAttribute ReservationRegisterForm reservationRegisterForm) {
-//		reservationService.create(reservationRegisterForm);
-//		
-//		return "redirect:/reservations?reserved";
-//	}
 }
